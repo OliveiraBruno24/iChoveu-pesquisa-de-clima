@@ -3,7 +3,6 @@ import { searchCities } from './weatherAPI';
 /**
  * Cria um elemento HTML com as informações passadas
  */
-aa
 function createElement(tagName, className, textContent = '') {
   const element = document.createElement(tagName);
   element.classList.add(...className.split(' '));
