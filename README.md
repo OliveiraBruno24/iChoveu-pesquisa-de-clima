@@ -265,7 +265,7 @@ Você deverá utilizar o endpoint de pesquisa de cidades para obter os dados das
 
   Em que:
   - `TERMO_DE_BUSCA` é o termo que você deseja pesquisar, por exemplo: `São Paulo`, `Rio de Janeiro` e `São José dos Campos`.
-  - `TOKEN` é o token que está salvo no arquivo `.env`.
+  - `TOKEN` é o token que você salvou no arquivo `.env` que consta na sessão `Acessando a API`.
 
   **Exemplo de requisição pesquisando por "Rio"**:
   
