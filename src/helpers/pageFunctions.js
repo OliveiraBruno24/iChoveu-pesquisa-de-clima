@@ -1,6 +1,6 @@
 import { searchCities, getWeatherByCity } from './weatherAPI';
 
-// const TOKEN = import.meta.env.VITE_TOKEN;
+const TOKEN = import.meta.env.VITE_TOKEN;
 /**
  * Cria um elemento HTML com as informações passadas
  */
@@ -78,7 +78,8 @@ export function showForecast(forecastList) {
  * Recebe um objeto com as informações de uma cidade e retorna um elemento HTML
  */
 export function createCityElement(cityInfo) {
-  const { name, country, temp, condition, icon } = cityInfo;
+  const { name, country, temp, condition, icon, url } = cityInfo;
+  console.log(cityInfo);
 
   const cityElement = createElement('li', 'city');
 
@@ -102,8 +103,25 @@ export function createCityElement(cityInfo) {
   infoContainer.appendChild(tempContainer);
   infoContainer.appendChild(iconElement);
 
+  const botaoDePrevisao = createElement('button', 'city-forecast-button', 'Ver previsão');
+
   cityElement.appendChild(headingElement);
   cityElement.appendChild(infoContainer);
+  cityElement.appendChild(botaoDePrevisao);
+
+  botaoDePrevisao.addEventListener('click', async () => {
+    const promise = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${TOKEN}&q=${url}&days=7&aqi=no&alerts=no`);
+    const data = await promise.json();
+
+    const semana = data.forecast.forecastday.map((eachDay) => ({
+      date: eachDay.date,
+      maxTemp: eachDay.day.maxtemp_c,
+      minTemp: eachDay.day.mintemp_c,
+      condition: eachDay.day.condition.text,
+      icon: eachDay.day.condition.icon,
+    }));
+    showForecast(semana);
+  });
 
   return cityElement;
 }
@@ -132,6 +150,7 @@ export async function handleSearch(event) {
         temp: weatherData[index].temp,
         condition: weatherData[index].condition,
         icon: weatherData[index].icon,
+        url: city.url,
       };
     });
     // aqui eu pego o elemento que tem o id cities, que é a lista de cidades da página.
