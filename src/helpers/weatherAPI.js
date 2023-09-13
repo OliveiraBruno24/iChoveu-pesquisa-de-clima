@@ -2,7 +2,6 @@
 const TOKEN = import.meta.env.VITE_TOKEN;
 
 export const searchCities = async (term) => {
-  // console.log(term);
   const response = await fetch(`http://api.weatherapi.com/v1/search.json?lang=pt&key=${TOKEN}&q=${term}`);
   const data = await response.json();
   if (data.length === 0) {

@@ -1,17 +1,20 @@
-# Título do Projeto
+# iChoveu
 
+!!API FOI DESATIVADA.
 ## Descrição
 
-Este repositório está em construção. Aqui você encontrará [breve resumo do projeto ou curso] e seus componentes.
-
-## Conteúdo
-
-- [Instruções de Instalação](#instruções-de-instalação)
-- [Como Usar](#como-usar)
+Este repositório contém o projeto iChoveu, que é um site de busca meteorológica, nele podemos saber o clima de 
+qualquer cidade que buscarmos na barra de busca. Após a pesquisa, um card é renderizado na tela com a informação
+meteorológica da região, os cards são elementos clicaveis e quando feito, trasem a informação climática dos
+próximos 7 dias.No caso de haver mais de uma cidade com o mesmo nome pesqusiado, todas serão
+renderizadas em formato de cards
 
 ## Instruções de Instalação
 
-Descreva aqui as instruções necessárias para configurar o ambiente de desenvolvimento e instalar quaisquer dependências.
+- clone o projeto usando git clone git@github.com:OliveiraBruno24/iChoveu-pesquisa-de-clima.git
+- acesse a pasta do projeto cd iChoveu-pesquisa-de-clima
+- no terminal da pasta instale as dependências usando npm install ou npm i
+- após a instalação, podemos rodar a plicação web através do comando npm run dev
 
 ## Como Usar
 
